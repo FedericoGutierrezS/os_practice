@@ -10,3 +10,12 @@ outb:
 	out dx, al
 	ret
 
+global inb
+
+;returns a byte from the given IO port
+;stack: +4 IO port address
+;       return address
+inb:
+	mov dx, [esp + 4]
+	in al, dx
+	ret

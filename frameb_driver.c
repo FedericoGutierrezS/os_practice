@@ -25,7 +25,7 @@ void fb_write_cell(unsigned short pos, char c, unsigned char fg, unsigned char b
 	fb[pos*2 + 1] = ((fg & 0x0F) << 4) | (bg & 0x0F);
 }
 
-int write(char *buf, unsigned int len, unsigned char fg, unsigned char bg){
+int fb_write(char *buf, unsigned int len, unsigned char fg, unsigned char bg){
 	unsigned short i = 0;
 	for(i = 0; i < len; i++){
 		fb_move_cursor(i);
