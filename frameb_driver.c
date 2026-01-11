@@ -19,13 +19,13 @@ void fb_move_cursor(unsigned short pos){
 	outb(FB_DATA_PORT, pos & 0x00FF);
 }
 
-void fb_write_cell(unsigned short pos, char c, unsigned char fg, unsigned char bg) {
+void fb_write_cell(unsigned short pos, char c, unsigned char bg, unsigned char fg) {
 	char *fb = (char *)FB_MEM_START;
 	fb[pos*2] = c;
 	fb[pos*2 + 1] = ((fg & 0x0F) << 4) | (bg & 0x0F);
 }
 
-int fb_write(char *buf, unsigned int len, unsigned char fg, unsigned char bg){
+int fb_write(char *buf, unsigned int len, unsigned char bg, unsigned char fg){
 	unsigned short i = 0;
 	for(i = 0; i < len; i++){
 		fb_move_cursor(i);

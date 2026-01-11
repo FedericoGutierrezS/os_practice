@@ -1,0 +1,29 @@
+# Ignore debug logs and output files
+*.log
+*.out
+*.txt
+
+# Ignore build artifacts
+*.o
+*.obj
+*.exe
+*.elf
+*.bin
+*.map
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+bochslog.txt

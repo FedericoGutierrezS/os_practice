@@ -1,4 +1,4 @@
-OBJECTS = loader.o kmain.o frameb_driver.o serial_driver.o io.o
+OBJECTS = loader.o kmain.o frameb_driver.o serial_driver.o io.o ioStream.o gdt.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 	 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
@@ -23,7 +23,7 @@ myos.iso: kernel.elf
 		-o myos.iso \
 		iso
 run: myos.iso
-	bochs -f bochsrc.txt -q
+	bochs -f bochsrc.txt -rc bochs_cmds.txt -q
 %.o: %.c
 	$(CC) $(CFLAGS) $< -o $@
 %.o: %.s
